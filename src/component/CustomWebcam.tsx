@@ -16,18 +16,20 @@ const CustomWebcam = () => {
     // used to store the value of the checkbox and determine whether the video stream should be mirrored or not
     const [mirrored, setMirrored] = useState<boolean>(false);
     // used to store all video devices
-    const [devices, setDevices] = React.useState([]);
+    const [devices, setDevices] = React.useState<MediaDeviceInfo[]>([]);
     // used to store currently in use camera id
-    const [selectedDeviceId, setSelectedDeviceId] = React.useState({});
+    const [selectedDeviceId, setSelectedDeviceId] = React.useState<string>("");
 
     const handleDevices = React.useCallback(
-        mediaDevices => {
+        (mediaDevices: MediaDeviceInfo[]) => {
             // filter all video device from media devices
-            const videoDevices = mediaDevices.filter(({kind}) => kind === "videoinput")
+            const videoDevices = mediaDevices.filter(({kind}) => kind === "videoinput") as MediaDeviceInfo[]
             // store filtered video device
             setDevices(videoDevices)
-            // store first video device as initial device
-            setSelectedDeviceId(videoDevices[0].deviceId)
+            // Store first video device as the initial device
+            if (videoDevices.length > 0) {
+                setSelectedDeviceId(videoDevices[0].deviceId);
+            }
         },
         [setDevices]
     );
@@ -60,7 +62,7 @@ const CustomWebcam = () => {
     };
 
     // change selected device
-    const handleSelectedDevices = (e) => {
+    const handleSelectedDevices = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedDeviceId(e.target.value);
     }
 
