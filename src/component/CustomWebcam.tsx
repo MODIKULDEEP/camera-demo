@@ -19,6 +19,45 @@ const CustomWebcam = () => {
     const [devices, setDevices] = React.useState<MediaDeviceInfo[]>([]);
     // used to store currently in use camera id
     const [selectedDeviceId, setSelectedDeviceId] = React.useState<string>("");
+    const [cameraAccessChecked, setCameraAccessChecked] = useState<boolean>(false);
+
+    // Function to check camera access and request permission if needed
+    const checkCameraAccess = async () => {
+        try {
+            // Attempt to access the camera
+            const stream = await navigator.mediaDevices.getUserMedia({video: true});
+
+            // If successful, the camera is accessible
+            console.log("Camera access granted");
+
+            // Stop the stream immediately if you don't need it now
+            stream.getTracks().forEach(track => track.stop());
+
+        } catch (error) {
+            if (error instanceof DOMException) {
+                if (error.name === 'NotAllowedError') {
+                    // If the user denied permission
+                    console.log("Camera access denied");
+                } else if (error.name === 'NotFoundError') {
+                    // If no camera is found
+                    console.log("No camera found");
+                } else {
+                    // Other errors
+                    console.error("Error accessing the camera:", error);
+                }
+            } else {
+                console.error("An unexpected error occurred:", error);
+            }
+        } finally {
+            // Indicate that camera access check is complete
+            setCameraAccessChecked(true);
+        }
+    };
+
+    // Call the function to check camera access
+    useEffect(() => {
+        checkCameraAccess();
+    }, []);
 
     const handleDevices = React.useCallback(
         (mediaDevices: MediaDeviceInfo[]) => {
@@ -43,7 +82,7 @@ const CustomWebcam = () => {
             }
             navigator.mediaDevices.enumerateDevices().then(handleDevices);
         },
-        [handleDevices]
+        [cameraAccessChecked, handleDevices]
     );
 
     // create a capture function to take photo
