@@ -1,5 +1,5 @@
 import Webcam from "react-webcam";
-import React, {useCallback, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 
 // Define the type for the webcam reference, which can be either a Webcam component instance or null
 type WebcamRef = React.MutableRefObject<Webcam | null>;
@@ -15,21 +15,28 @@ const CustomWebcam = () => {
     const [imgSrc, setImgSrc] = useState<Base64<'jpeg'> | null>(null);
     // used to store the value of the checkbox and determine whether the video stream should be mirrored or not
     const [mirrored, setMirrored] = useState<boolean>(false);
-
+    // used to store all video devices
     const [devices, setDevices] = React.useState([]);
-    const [selectedDevice, setSelectedDevice] = React.useState({});
+    // used to store currently in use camera id
+    const [selectedDeviceId, setSelectedDeviceId] = React.useState({});
 
     const handleDevices = React.useCallback(
         mediaDevices => {
-            setDevices(mediaDevices.filter(({kind}) => kind === "videoinput"))
-            setSelectedDevice(mediaDevices.filter(({kind}) => kind === "videoinput")[0])
+            // filter all video device from media devices
+            const videoDevices = mediaDevices.filter(({kind}) => kind === "videoinput")
+            // store filtered video device
+            setDevices(videoDevices)
+            // store first video device as initial device
+            setSelectedDeviceId(videoDevices[0].deviceId)
         },
         [setDevices]
     );
 
-    React.useEffect(
+    useEffect(
         () => {
+            // check if video device is supported or not
             if (!navigator.mediaDevices?.enumerateDevices) {
+                // throw error if no video devices is supported
                 alert("enumerateDevices() not supported.");
             }
             navigator.mediaDevices.enumerateDevices().then(handleDevices);
@@ -39,11 +46,12 @@ const CustomWebcam = () => {
 
     // create a capture function to take photo
     const capture = useCallback(() => {
-      if (webcamRef.current instanceof Webcam) {
-        // This function returns a base64 encoded string of the current webcam image
-        const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc as Base64<'jpeg'>);
-      }
+        if (webcamRef.current instanceof Webcam) {
+            // This function returns a base64 encoded string of the current webcam image
+            const imageSrc = webcamRef.current.getScreenshot();
+            // set captured image in state
+            setImgSrc(imageSrc as Base64<'jpeg'>);
+        }
     }, [webcamRef]);
 
     // function for retaking photos
@@ -51,15 +59,19 @@ const CustomWebcam = () => {
         setImgSrc(null);
     };
 
+    // change selected device
+    const handleSelectedDevices = (e) => {
+        setSelectedDeviceId(e.target.value);
+    }
+
     return (
         <div className="container">
+            {selectedDeviceId &&
                 <div>
                     {imgSrc ? (
                         <img src={imgSrc} alt="webcam"/>
                     ) : (
                         <Webcam
-                            height={600}
-                            width={600}
                             // reference for capturing image
                             ref={webcamRef}
                             // boolean value for if we need mirror image or not
@@ -71,12 +83,20 @@ const CustomWebcam = () => {
                             // smoothens the pixel of a image
                             imageSmoothing={true}
                             // for to show specific camera device
-                            videoConstraints={{deviceId: selectedDevice.deviceId}}
+                            videoConstraints={{deviceId: selectedDeviceId}}
                         />
                     )}
-                    {selectedDevice.label}
                 </div>
+            }
             <div className="controls">
+                <div>
+                    <label htmlFor="cameras">Choose a camera:</label>
+                    <select name="cameras" id="cameras" onChange={(e) => handleSelectedDevices(e)}>
+                        {devices?.map((device) => (
+                            <option key={device.label} value={device.deviceId}>{device.label}</option>
+                        ))}
+                    </select>
+                </div>
                 <div>
                     <input
                         type="checkbox"
