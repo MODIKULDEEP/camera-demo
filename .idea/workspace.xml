@@ -4,11 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8512997d-654f-4ce5-bc96-a805631a5085" name="Changes" comment="" />
+    <list default="true" id="8512997d-654f-4ce5-bc96-a805631a5085" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CameraControls.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CaptureButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CapturedImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/CustomWebcam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,26 +41,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Kuldeep/test module&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.build.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.preview.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Kuldeep\\test module\\camera-demo\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Kuldeep/test module/camera-demo/camera-demo-1/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.preview.executor": "Run",
+    "ts.external.directory.path": "D:\\Kuldeep\\test module\\camera-demo\\camera-demo-1\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="npm.dev">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Kuldeep\test module\camera-demo\camera-demo-1\frontend\src\component\customCameraComponent" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.preview">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/camera-demo-1/frontend/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
@@ -51,7 +76,7 @@
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/camera-demo-1/frontend/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
@@ -61,7 +86,7 @@
       <method v="2" />
     </configuration>
     <configuration name="preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/camera-demo-1/frontend/package.json" />
       <command value="run" />
       <scripts>
         <script value="preview" />
@@ -72,9 +97,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.preview" />
         <item itemvalue="npm.build" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -96,6 +121,8 @@
       <workItem from="1724306760449" duration="20929000" />
       <workItem from="1724331658967" duration="1805000" />
       <workItem from="1724388821335" duration="152000" />
+      <workItem from="1724389987838" duration="132000" />
+      <workItem from="1724390545581" duration="2261000" />
     </task>
     <servers />
   </component>

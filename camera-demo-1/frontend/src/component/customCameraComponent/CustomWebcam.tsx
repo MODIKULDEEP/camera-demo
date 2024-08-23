@@ -1,5 +1,9 @@
 import Webcam from "react-webcam";
 import React, {useCallback, useEffect, useRef, useState} from "react";
+import Camera from "./cameraComponent/Camera.tsx";
+import CapturedImage from "./cameraComponent/CapturedImage.tsx";
+import CameraControls from "./cameraComponent/CameraControls.tsx";
+import CaptureButton from "./cameraComponent/CaptureButton.tsx";
 
 // Define the type for the webcam reference, which can be either a Webcam component instance or null
 type WebcamRef = React.MutableRefObject<Webcam | null>;
@@ -26,13 +30,10 @@ const CustomWebcam = () => {
         try {
             // Attempt to access the camera
             const stream = await navigator.mediaDevices.getUserMedia({video: true});
-
             // If successful, the camera is accessible
             console.log("Camera access granted");
-
             // Stop the stream immediately if you don't need it now
             stream.getTracks().forEach(track => track.stop());
-
         } catch (error) {
             if (error instanceof DOMException) {
                 if (error.name === 'NotAllowedError') {
@@ -107,53 +108,21 @@ const CustomWebcam = () => {
 
     return (
         <div className="container">
-            {selectedDeviceId &&
+            {selectedDeviceId && (
                 <div>
-                    {imgSrc ? (
-                        <img src={imgSrc} alt="webcam"/>
-                    ) : (
-                        <Webcam
-                            // reference for capturing image
-                            ref={webcamRef}
-                            // boolean value for if we need mirror image or not
-                            mirrored={mirrored}
-                            // for image capture quality range from 0 to 1
-                            screenshotQuality={1}
-                            // The possible values for this prop are image/jpeg, image/png, and image/webp. The default value is image/webp
-                            screenshotFormat="image/jpeg"
-                            // smoothens the pixel of a image
-                            imageSmoothing={true}
-                            // for to show specific camera device
-                            videoConstraints={{deviceId: selectedDeviceId}}
-                        />
-                    )}
+                    <CapturedImage imgSrc={imgSrc}/>
+                    {!imgSrc && <Camera ref={webcamRef} mirrored={mirrored} selectedDeviceId={selectedDeviceId}/>}
                 </div>
+            )
             }
-            <div className="controls">
-                <div>
-                    <label htmlFor="cameras">Choose a camera:</label>
-                    <select name="cameras" id="cameras" onChange={(e) => handleSelectedDevices(e)}>
-                        {devices?.map((device) => (
-                            <option key={device.label} value={device.deviceId}>{device.label}</option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <input
-                        type="checkbox"
-                        checked={mirrored}
-                        onChange={(e) => setMirrored(e.target.checked)}
-                    />
-                    <label>Mirror</label>
-                </div>
-            </div>
-            <div className="btn-container">
-                {imgSrc ? (
-                    <button onClick={retake}>Retake photo</button>
-                ) : (
-                    <button onClick={capture}>Capture photo</button>
-                )}
-            </div>
+            <CameraControls
+                devices={devices}
+                mirrored={mirrored}
+                setMirrored={setMirrored}
+                selectedDeviceId={selectedDeviceId}
+                handleSelectedDevices={handleSelectedDevices}
+            />
+            <CaptureButton imgSrc={imgSrc} capture={capture} retake={retake}/>
         </div>
     );
 };
