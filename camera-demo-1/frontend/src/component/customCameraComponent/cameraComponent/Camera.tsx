@@ -1,15 +1,8 @@
-import React, { forwardRef } from "react";
+import {forwardRef} from "react";
 import Webcam from "react-webcam";
+import {CameraProps} from "../../../types/types.ts";
 
-type ImageType = 'png' | 'jpeg' | 'webp'
-
-type CameraProps = {
-    mirrored: boolean;
-    selectedDeviceId: string;
-    imgType: ImageType
-};
-
-const Camera = forwardRef<Webcam, CameraProps>(({ mirrored, selectedDeviceId, imgType }, ref) => {
+const Camera = forwardRef<Webcam, CameraProps>(({mirrored, selectedDeviceId, imgType}, ref) => {
     return (
         <Webcam
             // reference for capturing image
@@ -23,7 +16,7 @@ const Camera = forwardRef<Webcam, CameraProps>(({ mirrored, selectedDeviceId, im
             // smoothens the pixel of an image
             imageSmoothing={true}
             // for to show specific camera device
-            videoConstraints={{ deviceId: selectedDeviceId }}
+            videoConstraints={{deviceId: selectedDeviceId}}
         />
     );
 });

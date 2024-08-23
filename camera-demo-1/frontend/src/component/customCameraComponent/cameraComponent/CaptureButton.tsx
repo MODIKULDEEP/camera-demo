@@ -1,16 +1,14 @@
 import React from "react";
+import {CaptureButtonProps} from "../../../types/types.ts";
 
-type CaptureButtonProps = {
-    imgSrc: string | null;
-    capture: () => void;
-    retake: () => void;
-};
-
-const CaptureButton: React.FC<CaptureButtonProps> = ({imgSrc, capture, retake}) => {
+const CaptureButton: React.FC<CaptureButtonProps> = ({imgSrc, capture, retake, uploadImage}) => {
     return (
         <div className="btn-container">
             {imgSrc ? (
-                <button onClick={retake}>Retake photo</button>
+                <>
+                    <button onClick={retake}>Retake photo</button>
+                    <button onClick={uploadImage}>Upload photo</button>
+                </>
             ) : (
                 <button onClick={capture}>Capture photo</button>
             )}

@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8512997d-654f-4ce5-bc96-a805631a5085" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/types/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/server/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera-demo-1/server/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CameraControls.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CameraControls.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CaptureButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CaptureButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CapturedImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CapturedImage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -55,6 +62,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Kuldeep\test module\camera-demo" />
       <recent name="D:\Kuldeep\test module\camera-demo\camera-demo-1\frontend\src\component\customCameraComponent" />
     </key>
   </component>
@@ -116,7 +124,7 @@
       <workItem from="1724331658967" duration="1805000" />
       <workItem from="1724388821335" duration="152000" />
       <workItem from="1724389987838" duration="132000" />
-      <workItem from="1724390545581" duration="5569000" />
+      <workItem from="1724390545581" duration="14627000" />
     </task>
     <servers />
   </component>

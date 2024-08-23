@@ -1,14 +1,13 @@
 import React from "react";
+import {CameraControlsProps} from "../../../types/types.ts";
 
-type CameraControlsProps = {
-    devices: MediaDeviceInfo[];
-    mirrored: boolean;
-    setMirrored: (value: boolean) => void;
-    selectedDeviceId: string;
-    handleSelectedDevices: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-};
-
-const CameraControls: React.FC<CameraControlsProps> = ({ devices, mirrored, setMirrored, selectedDeviceId, handleSelectedDevices }) => {
+const CameraControls: React.FC<CameraControlsProps> = ({
+                                                           devices,
+                                                           mirrored,
+                                                           setMirrored,
+                                                           selectedDeviceId,
+                                                           handleSelectedDevices
+                                                       }) => {
     return (
         <div className="controls">
             <div>
@@ -22,8 +21,11 @@ const CameraControls: React.FC<CameraControlsProps> = ({ devices, mirrored, setM
                 </select>
             </div>
             <div>
-                <input type="checkbox" checked={mirrored} onChange={(e) => setMirrored(e.target.checked)} />
-                <label>Mirror</label>
+                <label>
+                    <input name="mirror" id="mirror" type="checkbox" checked={mirrored}
+                           onChange={(e) => setMirrored(e.target.checked)}/>
+                    Mirror
+                </label>
             </div>
         </div>
     );

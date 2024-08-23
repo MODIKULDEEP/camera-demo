@@ -4,23 +4,13 @@ import Camera from "./cameraComponent/Camera.tsx";
 import CapturedImage from "./cameraComponent/CapturedImage.tsx";
 import CameraControls from "./cameraComponent/CameraControls.tsx";
 import CaptureButton from "./cameraComponent/CaptureButton.tsx";
+import {CustomWebcamProps, imageDataType, WebcamRef} from "../../types/types.ts";
 
-// Define the type for the webcam reference, which can be either a Webcam component instance or null
-type WebcamRef = React.MutableRefObject<Webcam | null>;
-// capture image type format
-type ImageType = 'png' | 'jpeg' | 'webp'
-// capture image data in base 64
-type Base64<imageType extends ImageType> = `data:image/${imageType};base64${string}`
-// Define the type for the props, including imgType
-type CustomWebcamProps = {
-    imgType: ImageType;
-};
-
-const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType}) => {
+const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType, sendImageData}) => {
     // using useRef Hook allow us to access the webcam instance and take a screenshot
     const webcamRef: WebcamRef = useRef<Webcam | null>(null);
     // imgSrc store the image data after a screenshot has been taken
-    const [imgSrc, setImgSrc] = useState<Base64<ImageType> | null>(null);
+    const [imgSrc, setImgSrc] = useState<imageDataType>(null);
     // used to store the value of the checkbox and determine whether the video stream should be mirrored or not
     const [mirrored, setMirrored] = useState<boolean>(false);
     // used to store all video devices
@@ -97,7 +87,7 @@ const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType}) => {
             const imageSrc = webcamRef.current.getScreenshot();
             console.log(typeof imageSrc)
             // set captured image in state
-            setImgSrc(imageSrc as Base64<ImageType>);
+            setImgSrc(imageSrc as imageDataType);
         }
     }, [webcamRef]);
 
@@ -110,6 +100,10 @@ const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType}) => {
     const handleSelectedDevices = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedDeviceId(e.target.value);
     }
+
+    const sendImage = () => {
+        sendImageData(imgSrc)
+    };
 
     return (
         <div className="container">
@@ -128,7 +122,7 @@ const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType}) => {
                 selectedDeviceId={selectedDeviceId}
                 handleSelectedDevices={handleSelectedDevices}
             />
-            <CaptureButton imgSrc={imgSrc} capture={capture} retake={retake}/>
+            <CaptureButton imgSrc={imgSrc} capture={capture} retake={retake} uploadImage={sendImage}/>
         </div>
     );
 };
