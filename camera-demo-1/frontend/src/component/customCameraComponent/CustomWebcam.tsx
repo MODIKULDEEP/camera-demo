@@ -11,12 +11,16 @@ type WebcamRef = React.MutableRefObject<Webcam | null>;
 type ImageType = 'png' | 'jpeg' | 'webp'
 // capture image data in base 64
 type Base64<imageType extends ImageType> = `data:image/${imageType};base64${string}`
+// Define the type for the props, including imgType
+type CustomWebcamProps = {
+    imgType: ImageType;
+};
 
-const CustomWebcam = () => {
+const CustomWebcam: React.FC<CustomWebcamProps> = ({imgType}) => {
     // using useRef Hook allow us to access the webcam instance and take a screenshot
     const webcamRef: WebcamRef = useRef<Webcam | null>(null);
     // imgSrc store the image data after a screenshot has been taken
-    const [imgSrc, setImgSrc] = useState<Base64<'jpeg'> | null>(null);
+    const [imgSrc, setImgSrc] = useState<Base64<ImageType> | null>(null);
     // used to store the value of the checkbox and determine whether the video stream should be mirrored or not
     const [mirrored, setMirrored] = useState<boolean>(false);
     // used to store all video devices
@@ -91,8 +95,9 @@ const CustomWebcam = () => {
         if (webcamRef.current instanceof Webcam) {
             // This function returns a base64 encoded string of the current webcam image
             const imageSrc = webcamRef.current.getScreenshot();
+            console.log(typeof imageSrc)
             // set captured image in state
-            setImgSrc(imageSrc as Base64<'jpeg'>);
+            setImgSrc(imageSrc as Base64<ImageType>);
         }
     }, [webcamRef]);
 
@@ -111,7 +116,8 @@ const CustomWebcam = () => {
             {selectedDeviceId && (
                 <div>
                     <CapturedImage imgSrc={imgSrc}/>
-                    {!imgSrc && <Camera ref={webcamRef} mirrored={mirrored} selectedDeviceId={selectedDeviceId}/>}
+                    {!imgSrc && <Camera ref={webcamRef} mirrored={mirrored} selectedDeviceId={selectedDeviceId}
+                                        imgType={imgType}/>}
                 </div>
             )
             }

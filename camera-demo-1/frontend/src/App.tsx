@@ -4,7 +4,7 @@ import CustomWebcam from "./component/customCameraComponent/CustomWebcam.tsx";
 const App = () => {
     return (
         <div className="App">
-            <CustomWebcam/>
+            <CustomWebcam imgType="webp"/>
         </div>
     );
 };

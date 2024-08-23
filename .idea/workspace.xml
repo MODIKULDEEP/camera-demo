@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8512997d-654f-4ce5-bc96-a805631a5085" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CameraControls.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CaptureButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/CapturedImage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/CustomWebcam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/CustomWebcam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/camera-demo-1/frontend/src/component/customCameraComponent/cameraComponent/Camera.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +116,7 @@
       <workItem from="1724331658967" duration="1805000" />
       <workItem from="1724388821335" duration="152000" />
       <workItem from="1724389987838" duration="132000" />
-      <workItem from="1724390545581" duration="2261000" />
+      <workItem from="1724390545581" duration="5569000" />
     </task>
     <servers />
   </component>
